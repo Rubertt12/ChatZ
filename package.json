@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
+    "build": "echo 'No build step needed'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,18 +22,5 @@
     "rimraf": "^5.0.7",
     "socket.io": "^4.7.5",
     "uuid": "^9.0.1"
-  }
-}
-{
-  "name": "ChatZ",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node server/server.js",
-    "build": "your-build-command"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "firebase": "^8.6.1",
-    "socket.io": "^4.0.1"
   }
 }
