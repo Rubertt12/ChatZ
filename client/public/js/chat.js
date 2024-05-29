@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('chatCode').textContent = chatCode;
 
-    const eventSource = new EventSource('/events');
     const messages = document.getElementById('messages');
+
+    const eventSource = new EventSource('/events');
 
     eventSource.onopen = () => {
         console.log('Conexão com o servidor estabelecida');
