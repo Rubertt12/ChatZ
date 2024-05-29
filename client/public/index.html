@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada do Chat</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="entry">
+        <h1>Bem-vindo ao Chat</h1>
+        <p>Digite o seu nome e o código para entrar ou clique em "Gerar Código" para criar um código aleatório:</p>
+        <form id="entryForm">
+            <input id="nameInput" type="text" placeholder="Seu nome" required />
+            <input id="codeInput" type="text" placeholder="Código de acesso" required />
+            <button type="submit">Entrar</button>
+        </form>
+        <button id="generateCodeBtn">Gerar Código</button>
+        <p id="generatedCode" style="margin-top: 10px;"></p>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
