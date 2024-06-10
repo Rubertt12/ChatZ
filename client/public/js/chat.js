@@ -8,28 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('chatCode').textContent = chatCode;
 
-    const messages = document.getElementById('messages');
-
-    const eventSource = new EventSource('/events');
-
-    eventSource.onopen = () => {
-        console.log('Conexão com o servidor estabelecida');
-    };
-
-    eventSource.onerror = () => {
-        console.error('Erro na conexão com o servidor');
-    };
-
-    eventSource.onmessage = (event) => {
-        const message = JSON.parse(event.data);
-        const item = document.createElement('div');
-        item.innerHTML = `<strong>${message.name}:</strong> ${message.text}`;
-        messages.appendChild(item);
-        messages.scrollTop = messages.scrollHeight;
-    };
+    const socket = io();
 
     const form = document.getElementById('messageForm');
     const input = document.getElementById('messageInput');
+    const messages = document.getElementById('messages');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -38,15 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: chatName,
                 text: input.value
             };
-            fetch('/sendMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(message)
-            });
+            socket.emit('sendMessage', message);
             input.value = '';
         }
     });
-});
 
+    socket.on('message', function(message) {
+        const item = document.createElement('div');
+        item.classList.add('message');
+        item.classList.add(message.name === chatName ? 'user2' : 'user1');
+        item.innerHTML = `<strong>${message.name}:</strong> ${message.text}`;
+        messages.appendChild(item);
+        messages.scrollTop = messages.scrollHeight;
+    });
+
+    socket.on('error', function() {
+        console.error('Erro na conexão com o servidor');
+    });
+});
