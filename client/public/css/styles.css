@@ -79,6 +79,18 @@ button:hover {
     flex-direction: column;
 }
 
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #222;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
 #messages {
     flex: 1;
     overflow-y: auto;
@@ -111,15 +123,15 @@ button:hover {
     align-self: flex-end;
 }
 
-#messageForm {
+.form-container {
     display: flex;
-    flex-direction: column; /* Altera a direção do layout para coluna */
+    flex-direction: column;
 }
 
 #messageInput {
     flex: 1;
     padding: 15px;
-    margin-bottom: 10px; /* Adiciona espaço entre o input e o botão */
+    margin-bottom: 10px;
     border: none;
     border-radius: 10px;
     background: #444;
@@ -131,6 +143,20 @@ button:hover {
     color: #999;
 }
 
+#messageForm button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7f3cb7, #2980b9);
+    color: #f1f1f1;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#messageForm button:hover {
+    background: linear-gradient(135deg, #6d3ca9, #2577a9);
+}
 #messageForm button {
     padding: 15px;
     border: none;
